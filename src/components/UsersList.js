@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import Button from './Button';
 import Skeleton from './Skeleton';
 import useThunk from '../hooks/use-thunk';
+import UsersListItem from './UsersListItem';
 
 function UsersList() {
   const [doFetchUsers, isLoadingUsers, fethcUsersError] = useThunk(fetchUsers);
@@ -26,11 +27,7 @@ function UsersList() {
     content = <div>Error fetching data</div>;
   } else {
     content = data.map((user) => (
-      <div key={user.id} className='mb-2 border p-2 shadow-md rounded'>
-        <div className='flex p-2 justify-between items-center cursor-pointer'>
-          {user.name}
-        </div>
-      </div>
+			<UsersListItem key={user.id} user={user}/>
     ));
   }
 
