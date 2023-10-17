@@ -3,8 +3,8 @@ import axios from 'axios';
 import { pause } from '../../tools/pause';
 
 export const removeUser = createAsyncThunk('user/remove', async (user) => {
-  const response = await axios.delete(`http://localhost:3005/${user.id}`);
+  await axios.delete(`http://localhost:3005/users/${user.id}`);
   await pause(300);
 	
-  return response.data;
+  return user;
 });
