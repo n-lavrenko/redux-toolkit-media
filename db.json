@@ -23,7 +23,7 @@
   ],
   "albums": [
     {
-      "id": 10,
+      "id": 1,
       "title": "Hiking Trip",
       "userId": 1
     },
@@ -63,7 +63,7 @@
       "id": 32
     },
     {
-      "userId": 1,
+      "userId": 100,
       "title": "Ergonomic Cotton Shoes",
       "id": 34
     },
