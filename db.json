@@ -26,6 +26,36 @@
       "id": 10,
       "title": "Hiking Trip",
       "userId": 1
+    },
+    {
+      "userId": 1,
+      "title": "Sleek Frozen Salad",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "title": "Intelligent Soft Pants",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "title": "Generic Cotton Shoes",
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "title": "Refined Plastic Pizza",
+      "id": 14
+    },
+    {
+      "userId": 1,
+      "title": "Licensed Fresh Shirt",
+      "id": 15
+    },
+    {
+      "userId": 1,
+      "title": "Luxurious Wooden Bacon",
+      "id": 16
     }
   ],
   "photos": []
