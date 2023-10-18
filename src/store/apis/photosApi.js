@@ -7,7 +7,7 @@ export const photosApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://localhost:3005',
     fetchFn: async (...args) => {
-      await pause(200);
+      await pause(1000);
       return fetch(...args);
     },
   }),
@@ -18,7 +18,8 @@ export const photosApi = createApi({
           const tags = result.map((photo) => {
             return { type: 'Photos', id: photo.id };
           });
-          tags.push({ type: 'AlbumsPhotos', id: album.id });
+          tags.push({ type: 'AlbumPhoto', id: album.id });
+          return tags;
         },
         query: (album) => {
           return {
@@ -32,15 +33,14 @@ export const photosApi = createApi({
       }),
       addPhoto: builder.mutation({
         invalidatesTags: (result, error, album) => {
-          return [{ type: 'AlbumsPhotos', id: album.id }];
+          return [{ type: 'AlbumPhoto', id: album.id }];
         },
         query: (album) => {
           return {
             url: '/photos',
             method: 'POST',
             body: {
-              title: faker.commerce.productMaterial(),
-              url: faker.image.urlLoremFlickr({ category: 'abstract' }),
+              url: faker.image.urlLoremFlickr({ category: 'abstract', width: 150, height: 150 }),
               albumId: album.id,
             },
           };
@@ -53,7 +53,7 @@ export const photosApi = createApi({
         query: (photo) => {
           return {
             url: `/photos/${photo.id}`,
-            method: 'DELTE',
+            method: 'DELETE',
           };
         },
       }),
